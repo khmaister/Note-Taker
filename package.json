@@ -1,0 +1,16 @@
+{
+    "name": "note-taker",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+      "test": "jest",
+      "start": "node server.js"
+    },
+    "author": "Van Khin",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.16.4",
+      "heroku": "^8.7.1"
+    }
+  }
