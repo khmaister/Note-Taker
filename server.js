@@ -27,7 +27,18 @@ app.post ('/api/notes', (req, res)=> {
     fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(dataBase));
     res.json(dataBase);
 }); 
-
+app.delete('/api/notes/:id', async (req, res) => {
+    const db = dataBase;
+    const noteId = req.params.id;
+    for (let i = 0; i < db.length; i++) {
+      const id = parseInt(noteId);
+      if (db[i].id === id) {
+        db.splice(i, 1);
+        fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(db));
+        res.json(db);
+      }
+    }
+  });
 app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}`)
 });
